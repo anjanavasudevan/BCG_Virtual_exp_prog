@@ -19,4 +19,14 @@ def plot_hist(dataframe, x_col, col_to_indicate, plot_title=None):
     """
     figure = px.histogram(dataframe, x=x_col, color=col_to_indicate)
     figure.update_layout(title=plot_title)
-    figure.show()
+
+    # Plotting configurations
+    config = {
+        'toImageButtonOptions': {
+            'format': 'png',  # one of png, svg, jpeg, webp
+            'height': 480,
+            'width': 640,
+            'scale': 3  # Multiply title/legend/axis/canvas sizes by this factor
+        }
+    }
+    figure.show(config=config)
